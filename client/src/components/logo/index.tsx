@@ -1,3 +1,8 @@
+import { Link } from "react-router-dom";
 export const Logo = () => {
-  return <img src="/images/logo.svg" alt="Pokemon logo" />;
+  return (
+    <Link to="/">
+      <img src="/images/logo.svg" alt="Pokemon logo" />{" "}
+    </Link>
+  );
 };
