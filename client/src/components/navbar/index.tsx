@@ -1,25 +1,26 @@
 import { Link } from "react-router-dom";
 import { Logo } from "../logo";
+import { UserMenu } from "../user-menu";
 
 export const NavBar = () => {
   return (
-    <nav className="flex items-center justify-around gap-x-6 h-[100px] w-full px-8">
+    <nav className="flex items-center justify-between  h-[80px] w-full px-8">
       <Logo />
       <div className="flex items-center justify-between gap-x-6">
         <Link to="/">
-          <span className="uppercase font-medium text-md">Dashboard</span>
+          <span className="uppercase font-semibold  text-md">Dashboard</span>
         </Link>
         <Link to="/">
-          <span className="uppercase font-medium text-md">Pokedex</span>
+          <span className="uppercase font-semibold text-md">Pokedex</span>
         </Link>
         <Link to="/">
-          <span className="uppercase font-medium text-md">Items</span>
+          <span className="uppercase font-semibold text-md">Items</span>
         </Link>
         <Link to="/">
-          <span className="uppercase font-medium text-md">Moves</span>
+          <span className="uppercase font-semibold  text-md">Moves</span>
         </Link>
       </div>
-      <div>user</div>
+      <UserMenu />
     </nav>
   );
 };
