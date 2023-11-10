@@ -32,17 +32,17 @@ export const NavBar = () => {
             Dashboard
           </span>
         </Link>
-        <Link to="/">
+        <Link to="/pokedex">
           <span className="uppercase font-semibold text-sm lg:text-md">
             Pokedex
           </span>
         </Link>
-        <Link to="/">
+        <Link to="/items">
           <span className="uppercase font-semibold text-sm lg:text-md">
             Items
           </span>
         </Link>
-        <Link to="/">
+        <Link to="/moves">
           <span className="uppercase font-semibold text-sm lg:text-md">
             Moves
           </span>
