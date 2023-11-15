@@ -11,34 +11,13 @@ import { Dashboard } from "./pages/dashboard";
 import { Pokedex } from "./pages/pokedex";
 import { Items } from "./pages/items";
 import { Moves } from "./pages/moves";
-import { useQuery } from "react-query";
+import { usePokemonList, usePokemonData } from "./hooks/useQuery";
 
 function App() {
-  async function getPokemonData(pokemons: any) {
-    const promises = pokemons.map((pokemon: any) => axios.get(pokemon.url));
-    return Promise.all(promises);
-  }
+  const { data: list } = usePokemonList();
+  const { data: pokemons } = usePokemonData(list!);
 
-  async function getPokemonsList() {
-    const { data } = await axios.get(
-      `https://pokeapi.co/api/v2/pokemon?offset=50&limit=20`
-    );
-    const response = data.results;
-    return response;
-  }
-
-  const { data: list } = useQuery({
-    queryKey: ["pokemon list"],
-    queryFn: getPokemonsList,
-  });
-
-  const { data: pokemons } = useQuery({
-    queryKey: ["pokemons data"],
-    queryFn: () => getPokemonData(list),
-    enabled: !!list,
-  });
-
-  if (pokemons) pokemons.map((pokemon) => console.log(pokemon.data));
+  if (pokemons) console.log(pokemons);
 
   const router = createBrowserRouter(
     createRoutesFromElements(
