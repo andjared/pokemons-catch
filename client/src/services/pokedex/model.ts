@@ -1,7 +1,3 @@
-export type PokeResponse = {
-  data?: Pokemon[];
-};
-
 export type PokemonShort = {
   name: string;
   url: string;

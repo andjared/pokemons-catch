@@ -1,13 +1,14 @@
 import axios from "axios";
-import { PokeResponse, PokemonList, PokemonShort } from "./model";
+import { Pokemon, PokemonList, PokemonShort } from "./model";
 
 class PokemonService {
-  async getPokemonData(list: PokemonShort[]): Promise<PokeResponse[]> {
+  async getPokemonData(list: PokemonShort[]) {
     const promises = list.map((pokemon: PokemonShort) =>
       axios.get(pokemon.url)
     );
-    const response = Promise.all(promises);
-    return response;
+    const response = await Promise.all(promises);
+    const data: Pokemon[] = response.map((res) => res.data);
+    return data;
   }
 
   async getPokemonsList(): Promise<PokemonShort[]> {
