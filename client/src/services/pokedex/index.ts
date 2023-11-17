@@ -13,7 +13,7 @@ class PokemonService {
 
   async getPokemonsList(): Promise<PokemonShort[]> {
     const { data } = await axios.get<PokemonList>(
-      `https://pokeapi.co/api/v2/pokemon?offset=50&limit=20`
+      `https://pokeapi.co/api/v2/pokemon?limit=151`
     );
     const response = data.results;
     return response;

@@ -25,7 +25,7 @@ export interface Pokemon {
   location_area_encounters: string;
   moves: [];
   past_types: [];
-  sprites: [];
-  species: [];
-  types: [];
+  sprites: { other: { "official-artwork": { front_default: string } } };
+  species: { name: string; url: string };
+  types: [{ type: { name: string; url: string } }];
 }

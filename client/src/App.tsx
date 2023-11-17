@@ -18,12 +18,14 @@ function App() {
   const { data: pokemons } = usePokemonData(list!);
 
   if (pokemons) console.log(pokemons);
+  //check status for data, loading & error
+  //fix pokemons! prop
 
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
         <Route index element={<Dashboard />} />
-        <Route path="/pokedex" element={<Pokedex />} />
+        <Route path="/pokedex" element={<Pokedex pokemons={pokemons!} />} />
         <Route path="/items" element={<Items />} />
         <Route path="/moves" element={<Moves />} />
       </Route>
@@ -31,7 +33,7 @@ function App() {
   );
 
   return (
-    <div className="App">
+    <div className="App ">
       <RouterProvider router={router} />
     </div>
   );
