@@ -1,10 +1,12 @@
 import { useQuery } from "react-query";
-import PokemonService from "../services/pokedex";
 import { PokemonShort } from "../services/pokedex/model";
+import PokemonService from "../services/pokedex";
+import ItemsService from "../services/items";
 
 const PokemonProvider = new PokemonService();
+const ItemsProvider = new ItemsService();
 
-export const usePokemonList = () => {
+const usePokemonList = () => {
   return useQuery({
     queryKey: ["list"],
     queryFn: PokemonProvider.getPokemonsList,
@@ -19,4 +21,19 @@ const usePokemonData = (list: PokemonShort[]) => {
   });
 };
 
-export { usePokemonData };
+const useItemsList = () => {
+  return useQuery({
+    queryKey: ["items"],
+    queryFn: ItemsProvider.getItemsList,
+  });
+};
+
+const useItemsData = (list: any) => {
+  return useQuery({
+    queryKey: ["item data"],
+    queryFn: () => ItemsProvider.getItemsData(list),
+    enabled: !!list,
+  });
+};
+
+export { usePokemonData, usePokemonList, useItemsList, useItemsData };

@@ -17,7 +17,7 @@ function App() {
   const { data: list } = usePokemonList();
   const { data: pokemons } = usePokemonData(list!);
 
-  if (pokemons) console.log(pokemons);
+  // if (pokemons) console.log(pokemons);
   //check status for data, loading & error
   //fix pokemons! prop
 

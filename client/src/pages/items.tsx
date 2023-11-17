@@ -1,5 +1,16 @@
 import React from "react";
+import { useItemsData, useItemsList } from "../hooks/useQuery";
 
 export const Items = () => {
-  return <div>Items</div>;
+  const { data: list } = useItemsList();
+
+  const { data } = useItemsData(list);
+  console.log(data);
+  return (
+    <div>
+      {data?.map((item) => (
+        <p>{item.name}</p>
+      ))}
+    </div>
+  );
 };
