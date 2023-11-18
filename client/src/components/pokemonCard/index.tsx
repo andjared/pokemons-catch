@@ -6,7 +6,8 @@ export interface IPokemon {
 
 const PokemonCard = ({ name, sprites, types }: IPokemon) => {
   const imgSrc = sprites.other["official-artwork"].front_default;
-  console.log(types.map((item) => `/icons/type-${item.type.name}.svg`));
+  console.log(types);
+
   return (
     <article className="flex flex-col justify-center items-center gap-2 lg:gap-4 p-2 lg:p-4 border-transparent border-solid shadow-sm rounded-xl bg-white">
       <img src={imgSrc} alt={name} />

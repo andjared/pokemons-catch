@@ -9,4 +9,5 @@ export interface Item {
   sprites: { default: string };
   attributes: [{ name: string; url: string }];
   effect_entries: [{ effect: string; short_effect: string }];
+  held_by_pokemon: [{ pokemon: { name: string; url: string } }];
 }

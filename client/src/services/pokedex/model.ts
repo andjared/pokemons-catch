@@ -21,7 +21,7 @@ export interface Pokemon {
   abilities: [];
   forms: [];
   game_indices: [];
-  held_items: [];
+  held_items: [item: { name: string; url: string }];
   location_area_encounters: string;
   moves: [];
   past_types: [];
