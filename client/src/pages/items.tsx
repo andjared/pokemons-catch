@@ -1,8 +1,17 @@
+import { Loader } from "../components/loader/loader";
 import { useItemsData, useItemsList } from "../hooks/useQuery";
 
 export const Items = () => {
   const { data: list } = useItemsList();
-  const { data } = useItemsData(list);
+  const { data, isLoading } = useItemsData(list);
+
+  if (isLoading)
+    return (
+      <section className="flex justify-center m-auto">
+        <Loader />
+      </section>
+    );
+
   return (
     <section className="grid grid-cols-list place-content-center gap-6 md:gap-4 py-6 px-8 md:px-6 lg:px-20 bg-slate-50 h-full">
       {data?.map((item) => {

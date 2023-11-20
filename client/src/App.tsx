@@ -11,21 +11,13 @@ import { Dashboard } from "./pages/dashboard";
 import { Pokedex } from "./pages/pokedex";
 import { Items } from "./pages/items";
 import { Moves } from "./pages/moves";
-import { usePokemonList, usePokemonData } from "./hooks/useQuery";
 
 function App() {
-  const { data: list } = usePokemonList();
-  const { data: pokemons } = usePokemonData(list!);
-
-  // if (pokemons) console.log(pokemons);
-  //check status for data, loading & error
-  //fix pokemons! prop
-
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
         <Route index element={<Dashboard />} />
-        <Route path="/pokedex" element={<Pokedex pokemons={pokemons!} />} />
+        <Route path="/pokedex" element={<Pokedex />} />
         <Route path="/items" element={<Items />} />
         <Route path="/moves" element={<Moves />} />
       </Route>
