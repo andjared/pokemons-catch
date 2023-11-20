@@ -18,6 +18,13 @@ class PokemonService {
     const response = data.results;
     return response;
   }
+  //param can be id or name
+  async getPokemonByParam(param: string): Promise<Pokemon> {
+    const { data } = await axios.get(
+      `https://pokeapi.co/api/v2/pokemon/${param}`
+    );
+    return data;
+  }
 }
 
 export default PokemonService;

@@ -21,6 +21,13 @@ const usePokemonData = (list: PokemonShort[]) => {
   });
 };
 
+const usePokemonDetails = (param: string) => {
+  return useQuery({
+    queryKey: ["pokemon details"],
+    queryFn: () => PokemonProvider.getPokemonByParam(param),
+  });
+};
+
 const useItemsList = () => {
   return useQuery({
     queryKey: ["items"],
@@ -36,4 +43,10 @@ const useItemsData = (list: any) => {
   });
 };
 
-export { usePokemonData, usePokemonList, useItemsList, useItemsData };
+export {
+  usePokemonData,
+  usePokemonList,
+  usePokemonDetails,
+  useItemsList,
+  useItemsData,
+};
