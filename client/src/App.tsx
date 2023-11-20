@@ -11,6 +11,7 @@ import { Dashboard } from "./pages/dashboard";
 import { Pokedex } from "./pages/pokedex";
 import { Items } from "./pages/items";
 import { Moves } from "./pages/moves";
+import { PokemonDetails } from "./pages/pokemonDetails";
 
 function App() {
   const router = createBrowserRouter(
@@ -18,6 +19,7 @@ function App() {
       <Route path="/" element={<Root />}>
         <Route index element={<Dashboard />} />
         <Route path="/pokedex" element={<Pokedex />} />
+        <Route path="/pokedex/:pokemonId" element={<PokemonDetails />} />
         <Route path="/items" element={<Items />} />
         <Route path="/moves" element={<Moves />} />
       </Route>

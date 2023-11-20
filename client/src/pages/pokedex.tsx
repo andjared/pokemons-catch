@@ -2,6 +2,7 @@ import PokemonCard from "../components/pokemonCard";
 import { Loader } from "../components/loader/loader";
 import { Pokemon } from "../services/pokedex/model";
 import { usePokemonList, usePokemonData } from "../hooks/useQuery";
+import { Link } from "react-router-dom";
 
 export interface IPokedex {
   pokemons: Pokemon[];
@@ -22,7 +23,9 @@ export function Pokedex() {
       {pokemons?.map((pokemon: Pokemon) => {
         const { name, id, sprites, types } = pokemon;
         return (
-          <PokemonCard name={name} sprites={sprites} key={id} types={types} />
+          <Link to={`/pokedex/${id}`}>
+            <PokemonCard name={name} sprites={sprites} key={id} types={types} />
+          </Link>
         );
       })}
     </section>
