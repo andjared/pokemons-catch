@@ -15,7 +15,7 @@ export const PokemonHero = ({
   description,
 }: IPokemonHero) => {
   return (
-    <header className="flex flex-col justify-between px-4 md:flex-row-reverse md:items-center md:gap-x-2 lg:px-16">
+    <header className="flex flex-col justify-between md:flex-row-reverse md:items-center md:gap-x-2 md:py-4">
       <img src={imgSrc} alt={name} />
       <div className="flex flex-col gap-y-2">
         <span>#{id}</span>
@@ -32,7 +32,7 @@ export const PokemonHero = ({
             ))}
           </ul>
         </div>
-        <p className="text-justify">{description}</p>
+        <p className="text-justify text-gray-500">{description}</p>
       </div>
     </header>
   );
