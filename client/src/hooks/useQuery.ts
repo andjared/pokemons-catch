@@ -1,5 +1,5 @@
-import { useQuery } from "react-query";
-import { PokemonShort } from "../services/pokedex/model";
+import { UseQueryResult, useQuery } from "react-query";
+import { PokemonShort, Pokemon, Species } from "../services/pokedex/model";
 import PokemonService from "../services/pokedex";
 import ItemsService from "../services/items";
 
@@ -13,7 +13,7 @@ const usePokemonList = () => {
   });
 };
 
-const usePokemonData = (list: PokemonShort[]) => {
+const usePokemonData = (list: PokemonShort[]): UseQueryResult<Pokemon[]> => {
   return useQuery({
     queryKey: ["pokemon data"],
     queryFn: () => PokemonProvider.getPokemonData(list),
@@ -21,10 +21,18 @@ const usePokemonData = (list: PokemonShort[]) => {
   });
 };
 
-const usePokemonDetails = (param: string) => {
+const usePokemonDetails = (param: string): UseQueryResult<Pokemon[]> => {
   return useQuery({
     queryKey: ["pokemon details"],
     queryFn: () => PokemonProvider.getPokemonByParam(param),
+  });
+};
+
+const useSpeciesData = (url: string): UseQueryResult<Species> => {
+  return useQuery({
+    queryKey: ["species"],
+    queryFn: () => PokemonProvider.getSpeciesData(url),
+    enabled: !!url,
   });
 };
 
@@ -47,6 +55,7 @@ export {
   usePokemonData,
   usePokemonList,
   usePokemonDetails,
+  useSpeciesData,
   useItemsList,
   useItemsData,
 };

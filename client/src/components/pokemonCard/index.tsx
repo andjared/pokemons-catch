@@ -1,7 +1,9 @@
+import { PokemonType } from "../../services/pokedex/model";
+
 export interface IPokemon {
   name: string;
   sprites: { other: { "official-artwork": { front_default: string } } };
-  types: [{ type: { name: string; url: string } }];
+  types: PokemonType[];
 }
 
 const PokemonCard = ({ name, sprites, types }: IPokemon) => {

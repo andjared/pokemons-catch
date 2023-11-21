@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Pokemon, PokemonList, PokemonShort } from "./model";
+import { Pokemon, PokemonList, PokemonShort, Species } from "./model";
 
 class PokemonService {
   async getPokemonData(list: PokemonShort[]) {
@@ -18,11 +18,17 @@ class PokemonService {
     const response = data.results;
     return response;
   }
+
   //param can be id or name
   async getPokemonByParam(param: string): Promise<Pokemon> {
     const { data } = await axios.get(
       `https://pokeapi.co/api/v2/pokemon/${param}`
     );
+    return data;
+  }
+
+  async getSpeciesData(url: string): Promise<Species> {
+    const { data } = await axios.get(url);
     return data;
   }
 }

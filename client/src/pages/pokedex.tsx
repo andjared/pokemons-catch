@@ -23,8 +23,8 @@ export function Pokedex() {
       {pokemons?.map((pokemon: Pokemon) => {
         const { name, id, sprites, types } = pokemon;
         return (
-          <Link to={`/pokedex/${id}`}>
-            <PokemonCard name={name} sprites={sprites} key={id} types={types} />
+          <Link to={`/pokedex/${id}`} key={id}>
+            <PokemonCard name={name} sprites={sprites} types={types} />
           </Link>
         );
       })}
