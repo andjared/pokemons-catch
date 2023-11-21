@@ -4,8 +4,8 @@ export interface IPokemonHero {
   imgSrc: string;
   name: string;
   types: PokemonType[];
-  description: string;
-  id: string;
+  description?: string;
+  id: number;
 }
 export const PokemonHero = ({
   imgSrc,

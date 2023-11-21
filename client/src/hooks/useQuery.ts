@@ -21,14 +21,14 @@ const usePokemonData = (list: PokemonShort[]): UseQueryResult<Pokemon[]> => {
   });
 };
 
-const usePokemonDetails = (param: string): UseQueryResult<Pokemon[]> => {
+const usePokemonDetails = (param: string) => {
   return useQuery({
     queryKey: ["pokemon details"],
     queryFn: () => PokemonProvider.getPokemonByParam(param),
   });
 };
 
-const useSpeciesData = (url: string): UseQueryResult<Species> => {
+const useSpeciesData = (url: string) => {
   return useQuery({
     queryKey: ["species"],
     queryFn: () => PokemonProvider.getSpeciesData(url),

@@ -27,7 +27,11 @@ export interface Pokemon {
   held_items: [item: { name: string; url: string }];
   location_area_encounters: string;
   past_types: [];
-  sprites: { other: { "official-artwork": { front_default: string } } };
+  sprites: {
+    other: {
+      "official-artwork": { front_default: string; front_shiny: string };
+    };
+  };
   species: { name: string; url: string };
   types: PokemonType[];
   moves: [{ move: { name: string; url: string } }];
