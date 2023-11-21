@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { usePokemonDetails, useSpeciesData } from "../hooks/useQuery";
+import { usePokemonDetails } from "../hooks/useQuery";
 import { Loader } from "../components/loader/loader";
 import { PokemonWrapper } from "../components/pokemonWrapper";
 

@@ -21,7 +21,7 @@ export const PokemonHero = ({
         <span>#{id}</span>
         <div className="flex flex-col gap-y-2 md:flex-row md:items-center md:gap-x-4">
           <h1 className="capitalize">{name}</h1>
-          <ul className="flex  gap-x-1">
+          <ul className="flex gap-x-1">
             {types.map((item, index) => (
               <li key={index}>
                 <img

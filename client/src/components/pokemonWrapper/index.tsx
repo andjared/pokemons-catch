@@ -26,7 +26,7 @@ export const PokemonWrapper = ({ pokemon }: IPokemonWrapper) => {
   )[0].flavor_text;
 
   return (
-    <section>
+    <section className="px-2 py-4 md:px-4">
       <PokemonHero
         imgSrc={imgSrc}
         name={name}
