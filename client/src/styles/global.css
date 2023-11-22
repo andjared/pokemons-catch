@@ -8,7 +8,7 @@
 
 html,
 body {
-  font-family: "Inter";
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   line-height: 150%;
   letter-spacing: 0.1px;
   height: 100%;
@@ -40,14 +40,14 @@ h4 {
 }
 
 h5 {
-  font-weight: 400;
-  font-size: 1.563rem;
-  line-height: 140%;
+  font-weight: 600;
+  font-size: 1.33rem;
+  line-height: 120%;
   letter-spacing: 0px;
 }
 
 h6 {
-  font-size: 1.43rem;
+  font-size: 1.13rem;
   line-height: 110%;
 }
 
@@ -58,9 +58,10 @@ button {
   font-weight: bold;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 640px) {
   h1 {
     letter-spacing: -1.5px;
+    font-size: 3rem;
   }
 }
 

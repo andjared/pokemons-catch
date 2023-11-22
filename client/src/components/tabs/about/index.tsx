@@ -43,8 +43,8 @@ const AboutTab = ({
   return (
     <section className="flex flex-col gap-y-4 lg:gap-y-6">
       <article className="flex flex-col gap-y-2 lg:gap-y-4">
-        <h5 className="font-medium text-gray-600">Basic Info</h5>
-        <div className="sm:flex justify-between items-center">
+        <h5 className="text-gray-700">Basic Info</h5>
+        <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
           <div className="flex flex-col gap-y-2">
             <h6 className="text-gray-500">Height</h6>
             <p>
@@ -65,8 +65,8 @@ const AboutTab = ({
       </article>
 
       <article className="flex flex-col gap-y-2 lg:gap-y-4">
-        <h5 className="font-medium text-gray-600">Additional</h5>
-        <div className="sm:flex justify-between items-center">
+        <h5 className="text-gray-700">Additional</h5>
+        <div className="flex flex-col sm:flex-row justify-between gap-y-4">
           <div className="flex flex-col gap-y-2">
             <h6 className="text-gray-500">Abilities</h6>
             <ul className="flex flex-col gap-y-2">

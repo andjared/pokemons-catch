@@ -50,11 +50,16 @@ export const PokemonWrapper = ({ pokemon }: IPokemonWrapper) => {
   }
 
   const imgSrc = sprites.other["official-artwork"].front_shiny;
-  const description = speciesData?.flavor_text_entries.filter(
-    (entry) => entry.language.name === "en"
-  )[0].flavor_text;
 
-  const { egg_groups, shape, habitat } = speciesData!;
+  const { egg_groups, shape, habitat, flavor_text_entries } = speciesData!;
+
+  const descriptionEn = flavor_text_entries.filter(
+    (entry) => entry.language.name === "en"
+  );
+
+  const description = descriptionEn[0].flavor_text.concat(
+    descriptionEn[3].flavor_text
+  );
 
   return (
     <section className="flex flex-col gap-y-4 px-4 py-4 sm:px-6 lg:px-36">
@@ -66,12 +71,12 @@ export const PokemonWrapper = ({ pokemon }: IPokemonWrapper) => {
           id={id}
           description={description}
         />
-        <div className="flex gap-x-2 sm:gap-x-4 md:gap-x-8">
+        <div className="flex gap-x-4 sm:gap-x-6">
           {tabs.map((tab) => {
             const { name, id } = tab;
             return (
               <Button
-                className="flex capitalize text-base sm:text-md  md:text-lg text-gray-700 font-semibold py-4"
+                className="capitalize text-base sm:text-md md:text-lg text-gray-700 font-semibold py-4"
                 id={String(id)}
                 key={id}
                 onClick={toggleTabs}
