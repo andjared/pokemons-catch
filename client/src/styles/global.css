@@ -46,6 +46,11 @@ h5 {
   letter-spacing: 0px;
 }
 
+h6 {
+  font-size: 1.43rem;
+  line-height: 110%;
+}
+
 button {
   font-size: 16px;
   /* line-height: 140%; */

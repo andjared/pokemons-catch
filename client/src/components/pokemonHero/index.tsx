@@ -1,4 +1,5 @@
 import { PokemonType } from "../../services/pokedex/model";
+import { zeroPad } from "../../utils/helpers";
 
 export interface IPokemonHero {
   imgSrc: string;
@@ -14,11 +15,13 @@ export const PokemonHero = ({
   id,
   description,
 }: IPokemonHero) => {
+  const threeDigitsId = zeroPad(id);
+
   return (
-    <header className="flex flex-col justify-between md:flex-row-reverse md:items-center md:gap-x-2 md:py-4">
+    <header className="flex flex-col justify-between sm:flex-row-reverse sm:items-center sm:gap-x-2 md:py-4">
       <img src={imgSrc} alt={name} />
       <div className="flex flex-col gap-y-2">
-        <span>#{id}</span>
+        <span>#{threeDigitsId}</span>
         <div className="flex flex-col gap-y-2 md:flex-row md:items-center md:gap-x-4">
           <h1 className="capitalize">{name}</h1>
           <ul className="flex gap-x-1">

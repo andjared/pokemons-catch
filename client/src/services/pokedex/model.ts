@@ -53,10 +53,15 @@ export type PokemonShape = {
   url: string;
 };
 
+export type PokemonHabitat = {
+  name: string;
+  url: string;
+};
+
 export interface Species {
   flavor_text_entries: [{ flavor_text: string; language: { name: string } }];
   egg_groups: EggGroup[];
-  habitat: { name: string };
   evolution_chain: { url: string };
   shape: PokemonShape;
+  habitat: PokemonHabitat;
 }

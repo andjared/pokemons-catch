@@ -22,3 +22,7 @@ export const kilogramsToPounds = (num: number) => {
   const result = (num * 2.205).toFixed(1);
   return result;
 };
+
+export const zeroPad = (num: number) => {
+  return num.toString().padStart(3, "0");
+};

@@ -54,11 +54,11 @@ export const PokemonWrapper = ({ pokemon }: IPokemonWrapper) => {
     (entry) => entry.language.name === "en"
   )[0].flavor_text;
 
-  const { egg_groups, shape } = speciesData!;
-  // console.log(speciesData);
+  const { egg_groups, shape, habitat } = speciesData!;
+  console.log(speciesData);
 
   return (
-    <section className="flex flex-col gap-y-4 px-4 py-4 md:px-4 lg:px-16">
+    <section className="flex flex-col gap-y-4 px-4 py-4 sm:px-6 lg:px-36">
       <div className="border-b-2 border-gray-100 flex flex-col gap-y-2">
         <PokemonHero
           imgSrc={imgSrc}
@@ -90,6 +90,7 @@ export const PokemonWrapper = ({ pokemon }: IPokemonWrapper) => {
           abilities={abilities}
           egg_groups={egg_groups}
           shape={shape}
+          habitat={habitat}
         />
       )}
       {activeTab === 2 && <BaseStatsTab />}
