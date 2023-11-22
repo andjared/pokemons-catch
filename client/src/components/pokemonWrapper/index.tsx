@@ -4,6 +4,10 @@ import { useSpeciesData } from "../../hooks/useQuery";
 import { PokemonHero } from "../pokemonHero";
 import { Button } from "../button";
 import { Loader } from "../loader/loader";
+import AboutTab from "../tabs/about";
+import BaseStatsTab from "../tabs/base-stats";
+import EvolutionTab from "../tabs/evolution";
+import MovesTab from "../tabs/moves";
 
 export interface IPokemonWrapper {
   pokemon: Pokemon;
@@ -11,25 +15,31 @@ export interface IPokemonWrapper {
 
 export const PokemonWrapper = ({ pokemon }: IPokemonWrapper) => {
   const {
-    // weight,
-    // height,
-    // abilities,
-    // stats,
+    weight,
+    height,
+    abilities,
+    stats,
     species,
     types,
     sprites,
     id,
     name,
   } = pokemon;
+
   const [activeTab, setActiveTab] = useState<number>(1);
   const { data: speciesData, isLoading } = useSpeciesData(species.url);
+
+  const tabs = [
+    { name: "about", id: 1 },
+    { name: "base stats", id: 2 },
+    { name: "evolution", id: 3 },
+    { name: "moves", id: 4 },
+  ];
 
   const toggleTabs = (e: React.MouseEvent<HTMLElement>) => {
     const element = e.target as HTMLButtonElement;
     setActiveTab(Number(element.id));
   };
-
-  console.log("active", activeTab);
 
   if (isLoading) {
     return (
@@ -44,12 +54,8 @@ export const PokemonWrapper = ({ pokemon }: IPokemonWrapper) => {
     (entry) => entry.language.name === "en"
   )[0].flavor_text;
 
-  const tabs = [
-    { name: "about", id: 1 },
-    { name: "base stats", id: 2 },
-    { name: "evolution", id: 3 },
-    { name: "moves", id: 4 },
-  ];
+  const { egg_groups, shape } = speciesData!;
+  // console.log(speciesData);
 
   return (
     <section className="flex flex-col gap-y-4 px-4 py-4 md:px-4 lg:px-16">
@@ -77,6 +83,18 @@ export const PokemonWrapper = ({ pokemon }: IPokemonWrapper) => {
           })}
         </div>
       </div>
+      {activeTab === 1 && (
+        <AboutTab
+          height={height}
+          weight={weight}
+          abilities={abilities}
+          egg_groups={egg_groups}
+          shape={shape}
+        />
+      )}
+      {activeTab === 2 && <BaseStatsTab />}
+      {activeTab === 3 && <EvolutionTab />}
+      {activeTab === 4 && <MovesTab />}
     </section>
   );
 };

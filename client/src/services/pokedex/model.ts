@@ -14,6 +14,10 @@ export interface PokemonType {
   type: { name: string; url: string };
 }
 
+export type PokemonAbility = {
+  [key: string]: { name: string; url: string };
+};
+
 export interface Pokemon {
   name: string;
   id: number;
@@ -21,7 +25,7 @@ export interface Pokemon {
   height: number;
   weight: number;
   is_default: boolean;
-  abilities: [];
+  abilities: PokemonAbility[];
   forms: [];
   game_indices: [];
   held_items: [item: { name: string; url: string }];
@@ -39,9 +43,20 @@ export interface Pokemon {
   stats: [{ base_stat: number; stat: { name: string } }];
 }
 
+export type EggGroup = {
+  name: string;
+  url: string;
+};
+
+export type PokemonShape = {
+  name: string;
+  url: string;
+};
+
 export interface Species {
   flavor_text_entries: [{ flavor_text: string; language: { name: string } }];
-  egg_groups: [{ name: string; url: string }];
+  egg_groups: EggGroup[];
   habitat: { name: string };
   evolution_chain: { url: string };
+  shape: PokemonShape;
 }
