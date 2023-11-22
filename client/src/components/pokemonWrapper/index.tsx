@@ -55,7 +55,6 @@ export const PokemonWrapper = ({ pokemon }: IPokemonWrapper) => {
   )[0].flavor_text;
 
   const { egg_groups, shape, habitat } = speciesData!;
-  console.log(speciesData);
 
   return (
     <section className="flex flex-col gap-y-4 px-4 py-4 sm:px-6 lg:px-36">
@@ -67,7 +66,7 @@ export const PokemonWrapper = ({ pokemon }: IPokemonWrapper) => {
           id={id}
           description={description}
         />
-        <div className="flex gap-x-2 sm:gap-x-4 w-full ">
+        <div className="flex gap-x-2 sm:gap-x-4 md:gap-x-8">
           {tabs.map((tab) => {
             const { name, id } = tab;
             return (
@@ -83,19 +82,21 @@ export const PokemonWrapper = ({ pokemon }: IPokemonWrapper) => {
           })}
         </div>
       </div>
-      {activeTab === 1 && (
-        <AboutTab
-          height={height}
-          weight={weight}
-          abilities={abilities}
-          egg_groups={egg_groups}
-          shape={shape}
-          habitat={habitat}
-        />
-      )}
-      {activeTab === 2 && <BaseStatsTab />}
-      {activeTab === 3 && <EvolutionTab />}
-      {activeTab === 4 && <MovesTab />}
+      <section className="md:w-2/4 mb-4">
+        {activeTab === 1 && (
+          <AboutTab
+            height={height}
+            weight={weight}
+            abilities={abilities}
+            egg_groups={egg_groups}
+            shape={shape}
+            habitat={habitat}
+          />
+        )}
+        {activeTab === 2 && <BaseStatsTab stats={stats} />}
+        {activeTab === 3 && <EvolutionTab />}
+        {activeTab === 4 && <MovesTab />}
+      </section>
     </section>
   );
 };

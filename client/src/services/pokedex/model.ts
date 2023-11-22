@@ -18,6 +18,12 @@ export type PokemonAbility = {
   [key: string]: { name: string; url: string };
 };
 
+export type PokemonStats = {
+  base_stat: number;
+  effort: number;
+  stat: { name: string; url: string };
+};
+
 export interface Pokemon {
   name: string;
   id: number;
@@ -30,7 +36,6 @@ export interface Pokemon {
   game_indices: [];
   held_items: [item: { name: string; url: string }];
   location_area_encounters: string;
-  past_types: [];
   sprites: {
     other: {
       "official-artwork": { front_default: string; front_shiny: string };
@@ -40,7 +45,7 @@ export interface Pokemon {
   types: PokemonType[];
   moves: [{ move: { name: string; url: string } }];
   order: number;
-  stats: [{ base_stat: number; stat: { name: string } }];
+  stats: PokemonStats[];
 }
 
 export type EggGroup = {
