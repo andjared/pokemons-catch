@@ -4,7 +4,7 @@ import {
   PokemonShape,
 } from "../../../services/pokedex/model";
 import {
-  convertToFeets,
+  decimeterToFeets,
   decimeterstToMeters,
   feetToInch,
   hectogramsToKilograms,
@@ -26,7 +26,7 @@ const AboutTab = ({
   egg_groups,
   shape,
 }: IAboutTab) => {
-  const heightInFeets = convertToFeets(height) * 10;
+  const heightInFeets = decimeterToFeets(height);
   const heightInchesReminder = feetToInch(heightInFeets);
   const heightInMeters = decimeterstToMeters(height);
 

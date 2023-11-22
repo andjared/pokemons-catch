@@ -4,8 +4,8 @@ export const feetToInch = (feet: number) => {
   return result;
 };
 
-export const convertToFeets = (num: number) => {
-  const result = num / 30.48;
+export const decimeterToFeets = (num: number) => {
+  const result = num * 0.32808;
   return result;
 };
 
@@ -19,5 +19,6 @@ export const hectogramsToKilograms = (num: number) => {
 };
 
 export const kilogramsToPounds = (num: number) => {
-  return (num * 2.205).toFixed(1);
+  const result = (num * 2.205).toFixed(1);
+  return result;
 };
