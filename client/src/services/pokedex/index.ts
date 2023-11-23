@@ -1,22 +1,17 @@
 import axios from "axios";
-import { Pokemon, PokemonList, PokemonShort, Species } from "./model";
+import { Pokemon, PokemonGroup, PokemonShort, Species } from "./model";
 
 class PokemonService {
-  async getPokemonData(list: PokemonShort[]) {
-    const promises = list.map((pokemon: PokemonShort) =>
-      axios.get(pokemon.url)
-    );
-    const response = await Promise.all(promises);
-    const data: Pokemon[] = response.map((res) => res.data);
-    return data;
+  async getPokemonGroups(): Promise<PokemonGroup[]> {
+    const { data } = await axios.get("https://pokeapi.co/api/v2/egg-group/");
+    return data.results;
   }
 
-  async getPokemonsList(): Promise<PokemonShort[]> {
-    const { data } = await axios.get<PokemonList>(
-      `https://pokeapi.co/api/v2/pokemon?limit=151`
+  async getPokemonsByGroup(group: string): Promise<PokemonShort[]> {
+    const { data } = await axios.get(
+      `https://pokeapi.co/api/v2/egg-group/${group}`
     );
-    const response = data.results;
-    return response;
+    return data.pokemon_species;
   }
 
   //param can be id or name

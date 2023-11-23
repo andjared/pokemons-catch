@@ -6,18 +6,17 @@ import ItemsService from "../services/items";
 const PokemonProvider = new PokemonService();
 const ItemsProvider = new ItemsService();
 
-const usePokemonList = () => {
+const usePokemonGroups = () => {
   return useQuery({
-    queryKey: ["list"],
-    queryFn: PokemonProvider.getPokemonsList,
+    queryKey: ["pokemon groups"],
+    queryFn: PokemonProvider.getPokemonGroups,
   });
 };
 
-const usePokemonData = (list: PokemonShort[]): UseQueryResult<Pokemon[]> => {
+const usePokemonList = (group: string) => {
   return useQuery({
-    queryKey: ["pokemon data"],
-    queryFn: () => PokemonProvider.getPokemonData(list),
-    enabled: !!list,
+    queryKey: ["pokemon list"],
+    queryFn: () => PokemonProvider.getPokemonsByGroup(group),
   });
 };
 
@@ -52,7 +51,7 @@ const useItemsData = (list: any) => {
 };
 
 export {
-  usePokemonData,
+  usePokemonGroups,
   usePokemonList,
   usePokemonDetails,
   useSpeciesData,

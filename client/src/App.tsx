@@ -5,21 +5,22 @@ import {
   RouterProvider,
   Outlet,
 } from "react-router-dom";
-import axios from "axios";
 import { NavBar } from "./components/navbar";
 import { Dashboard } from "./pages/dashboard";
-import { Pokedex } from "./pages/pokedex";
+import { Pokemons } from "./pages/pokemons";
 import { Items } from "./pages/items";
 import { Moves } from "./pages/moves";
 import { PokemonDetails } from "./pages/pokemonDetails";
+import { PokemonGroup } from "./pages/group";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
         <Route index element={<Dashboard />} />
-        <Route path="/pokedex" element={<Pokedex />} />
-        <Route path="/pokedex/:pokemonId" element={<PokemonDetails />} />
+        <Route path="/pokemons" element={<Pokemons />} />
+        <Route path="/pokemons/:group" element={<PokemonGroup />} />
+        <Route path="/pokemons/:group/:param" element={<PokemonDetails />} />
         <Route path="/items" element={<Items />} />
         <Route path="/moves" element={<Moves />} />
       </Route>

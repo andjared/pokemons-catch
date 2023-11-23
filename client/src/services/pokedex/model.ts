@@ -3,6 +3,11 @@ export type PokemonShort = {
   url: string;
 };
 
+export type PokemonGroup = {
+  name: string;
+  url: string;
+};
+
 export type PokemonList = {
   count: number;
   next: string;
