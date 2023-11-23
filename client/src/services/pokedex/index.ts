@@ -2,8 +2,8 @@ import axios from "axios";
 import { Pokemon, PokemonGroup, ResponseShort, Species } from "./model";
 
 class PokemonService {
-  async getGroups(): Promise<PokemonGroup[]> {
-    const { data } = await axios.get("https://pokeapi.co/api/v2/egg-group/");
+  async getCategory(category: string): Promise<PokemonGroup[]> {
+    const { data } = await axios.get(`https://pokeapi.co/api/v2/${category}/`);
     return data.results;
   }
 
@@ -14,22 +14,22 @@ class PokemonService {
     return data.pokemon_species;
   }
 
-  async getTypes(): Promise<ResponseShort[]> {
-    const { data } = await axios.get("https://pokeapi.co/api/v2/type/");
-    return data.results;
-  }
+  // async getTypes(): Promise<ResponseShort[]> {
+  //   const { data } = await axios.get("https://pokeapi.co/api/v2/type/");
+  //   return data.results;
+  // }
 
-  async getNatures(): Promise<ResponseShort[]> {
-    const { data } = await axios.get("https://pokeapi.co/api/v2/nature/");
-    return data.results;
-  }
+  // async getNatures(): Promise<ResponseShort[]> {
+  //   const { data } = await axios.get("https://pokeapi.co/api/v2/nature/");
+  //   return data.results;
+  // }
 
-  async getShapes(): Promise<ResponseShort[]> {
-    const { data } = await axios.get(
-      "https://pokeapi.co/api/v2/pokemon-shape/"
-    );
-    return data.results;
-  }
+  // async getShapes(): Promise<ResponseShort[]> {
+  //   const { data } = await axios.get(
+  //     "https://pokeapi.co/api/v2/pokemon-shape/"
+  //   );
+  //   return data.results;
+  // }
 
   //param can be id or name
   async getPokemonByParam(param: string): Promise<Pokemon> {

@@ -5,33 +5,33 @@ import ItemsService from "../services/items";
 const PokemonProvider = new PokemonService();
 const ItemsProvider = new ItemsService();
 
-const usePokemonGroups = () => {
+const usePokemonCategories = (category: string) => {
   return useQuery({
     queryKey: ["pokemon-groups"],
-    queryFn: PokemonProvider.getGroups,
+    queryFn: () => PokemonProvider.getCategory(category),
   });
 };
 
-const usePokemonTypes = () => {
-  return useQuery({
-    queryKey: ["pokemon-types"],
-    queryFn: PokemonProvider.getTypes,
-  });
-};
+// const usePokemonTypes = () => {
+//   return useQuery({
+//     queryKey: ["pokemon-types"],
+//     queryFn: PokemonProvider.getTypes,
+//   });
+// };
 
-const usePokemonNatures = () => {
-  return useQuery({
-    queryKey: ["pokemon-natures"],
-    queryFn: PokemonProvider.getNatures,
-  });
-};
+// const usePokemonNatures = () => {
+//   return useQuery({
+//     queryKey: ["pokemon-natures"],
+//     queryFn: PokemonProvider.getNatures,
+//   });
+// };
 
-const usePokemonShapes = () => {
-  return useQuery({
-    queryKey: ["pokemon-shapes"],
-    queryFn: PokemonProvider.getShapes,
-  });
-};
+// const usePokemonShapes = () => {
+//   return useQuery({
+//     queryKey: ["pokemon-shapes"],
+//     queryFn: PokemonProvider.getShapes,
+//   });
+// };
 
 const usePokemonList = (group: string) => {
   return useQuery({
@@ -71,13 +71,10 @@ const useItemsData = (list: any) => {
 };
 
 export {
-  usePokemonGroups,
+  usePokemonCategories,
   usePokemonList,
   usePokemonDetails,
   useSpeciesData,
   useItemsList,
   useItemsData,
-  usePokemonTypes,
-  usePokemonNatures,
-  usePokemonShapes,
 };
