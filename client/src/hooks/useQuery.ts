@@ -1,5 +1,4 @@
-import { UseQueryResult, useQuery } from "react-query";
-import { PokemonShort, Pokemon, Species } from "../services/pokedex/model";
+import { useQuery } from "react-query";
 import PokemonService from "../services/pokedex";
 import ItemsService from "../services/items";
 
@@ -8,8 +7,29 @@ const ItemsProvider = new ItemsService();
 
 const usePokemonGroups = () => {
   return useQuery({
-    queryKey: ["pokemon groups"],
-    queryFn: PokemonProvider.getPokemonGroups,
+    queryKey: ["pokemon-groups"],
+    queryFn: PokemonProvider.getGroups,
+  });
+};
+
+const usePokemonTypes = () => {
+  return useQuery({
+    queryKey: ["pokemon-types"],
+    queryFn: PokemonProvider.getTypes,
+  });
+};
+
+const usePokemonNatures = () => {
+  return useQuery({
+    queryKey: ["pokemon-natures"],
+    queryFn: PokemonProvider.getNatures,
+  });
+};
+
+const usePokemonShapes = () => {
+  return useQuery({
+    queryKey: ["pokemon-shapes"],
+    queryFn: PokemonProvider.getShapes,
   });
 };
 
@@ -57,4 +77,7 @@ export {
   useSpeciesData,
   useItemsList,
   useItemsData,
+  usePokemonTypes,
+  usePokemonNatures,
+  usePokemonShapes,
 };

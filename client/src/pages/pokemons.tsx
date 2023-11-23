@@ -20,15 +20,20 @@ export function Pokemons() {
   }
 
   return (
-    <section className="grid grid-cols-list place-content-center gap-6 md:gap-4 p-6 lg:px-20 bg-slate-50 h-full">
-      {groups?.map((group, index) => {
-        const { name } = group;
-        return (
-          <Link to={`/pokemons/${name}`} key={index}>
-            <Card name={name} />
-          </Link>
-        );
-      })}
-    </section>
+    <>
+      {/* search by name */}
+      {/* filter by categories */}
+
+      <section className="grid grid-cols-list place-content-center gap-6 md:gap-4 p-6 lg:px-20 bg-slate-50 h-full">
+        {groups?.map((group, index) => {
+          const { name } = group;
+          return (
+            <Link to={`/pokemons/${name}`} key={index}>
+              <Card name={name} />
+            </Link>
+          );
+        })}
+      </section>
+    </>
   );
 }

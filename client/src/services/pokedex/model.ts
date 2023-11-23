@@ -3,17 +3,22 @@ export type PokemonShort = {
   url: string;
 };
 
+export type ResponseShort = {
+  name: string;
+  url: string;
+};
+
 export type PokemonGroup = {
   name: string;
   url: string;
 };
 
-export type PokemonList = {
-  count: number;
-  next: string;
-  previous: string;
-  results: PokemonShort[];
-};
+// export type PokemonList = {
+//   count: number;
+//   next: string;
+//   previous: string;
+//   results: PokemonShort[];
+// };
 
 export interface PokemonType {
   type: { name: string; url: string };
