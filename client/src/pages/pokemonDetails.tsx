@@ -6,7 +6,6 @@ import { PokemonWrapper } from "../components/pokemonWrapper";
 export const PokemonDetails = () => {
   const { param } = useParams();
   const { data: pokemon, isLoading } = usePokemonDetails(param!);
-  console.log(pokemon);
 
   if (isLoading) {
     return (

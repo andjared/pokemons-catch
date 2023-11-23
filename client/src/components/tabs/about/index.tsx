@@ -70,7 +70,7 @@ const AboutTab = ({
           <div className="flex flex-col gap-y-2">
             <h6 className="text-gray-500">Abilities</h6>
             <ul className="flex flex-col gap-y-2">
-              {abilities.map((item, index) => (
+              {abilities?.map((item, index) => (
                 <li key={index} className="capitalize">
                   {item.ability.name}
                 </li>
@@ -89,7 +89,7 @@ const AboutTab = ({
           </div>
           <div className="flex flex-col gap-y-2">
             <h6 className="text-gray-500">Habitat</h6>
-            <p className="capitalize">{habitat.name}</p>
+            <p className="capitalize">{habitat ? habitat.name : "Unkownn"}</p>
           </div>
         </div>
       </article>
