@@ -4,7 +4,7 @@ export interface ICard {
 
 const Card = ({ name }: ICard) => {
   return (
-    <article className="flex flex-col justify-center items-center gap-2 lg:gap-4 p-2 lg:p-4 border-transparent border-solid shadow-sm rounded-xl bg-white">
+    <article className="text-center p-4 lg:p-4 border-transparent border-solid shadow-sm rounded-xl bg-gray-50">
       <h5 className="capitalize">{name}</h5>
     </article>
   );

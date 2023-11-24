@@ -7,29 +7,24 @@ class PokemonService {
     return data.results;
   }
 
+  async getSubcategoryResults(category: string, subcategory: string) {
+    const { data } = await axios.get(
+      `https://pokeapi.co/api/v2/${category}/${subcategory}`
+    );
+
+    if (category === "type") {
+      return data.pokemon;
+    }
+
+    return data.pokemon_species;
+  }
+
   async getPokemonsByGroup(group: string): Promise<ResponseShort[]> {
     const { data } = await axios.get(
       `https://pokeapi.co/api/v2/egg-group/${group}`
     );
     return data.pokemon_species;
   }
-
-  // async getTypes(): Promise<ResponseShort[]> {
-  //   const { data } = await axios.get("https://pokeapi.co/api/v2/type/");
-  //   return data.results;
-  // }
-
-  // async getNatures(): Promise<ResponseShort[]> {
-  //   const { data } = await axios.get("https://pokeapi.co/api/v2/nature/");
-  //   return data.results;
-  // }
-
-  // async getShapes(): Promise<ResponseShort[]> {
-  //   const { data } = await axios.get(
-  //     "https://pokeapi.co/api/v2/pokemon-shape/"
-  //   );
-  //   return data.results;
-  // }
 
   //param can be id or name
   async getPokemonByParam(param: string): Promise<Pokemon> {

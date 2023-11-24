@@ -1,13 +1,16 @@
+import { useState } from "react";
 import { usePokemonCategories } from "../../hooks/useQuery";
-import { Link } from "react-router-dom";
 import { Loader } from "../loader/loader";
 import Card from "../card";
+import { Button } from "../button";
+import Pokemons from "./pokemons";
 
 export interface ISubcategories {
   category: string;
 }
 const Subcategories = ({ category }: ISubcategories) => {
   const { data, isLoading } = usePokemonCategories(category);
+  const [subcategory, setSubcategory] = useState<string>("");
 
   if (isLoading) {
     return (
@@ -16,18 +19,23 @@ const Subcategories = ({ category }: ISubcategories) => {
       </section>
     );
   }
-  console.log(category, data);
+  const handleSubcategory = (name: string) => {
+    setSubcategory(name);
+  };
 
   return (
-    <section className="grid grid-cols-list place-content-center gap-6 md:gap-4 p-6 lg:px-20 bg-slate-50">
+    <section className="grid grid-cols-list place-content-center gap-4 md:gap-4 py-4 px-6 lg:px-8 lg:py-6 w-full bg-white ">
       {data?.map((item, index) => {
         const { name } = item;
         return (
-          <Link to={`/pokemons/${name}`} key={index}>
+          <Button onClick={() => handleSubcategory(name)} key={index}>
             <Card name={name} />
-          </Link>
+          </Button>
         );
       })}
+      {subcategory && (
+        <Pokemons category={category} subcategory={subcategory} />
+      )}
     </section>
   );
 };
