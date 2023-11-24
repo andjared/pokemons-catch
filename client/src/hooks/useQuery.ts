@@ -7,42 +7,22 @@ const ItemsProvider = new ItemsService();
 
 const usePokemonCategories = (category: string) => {
   return useQuery({
-    queryKey: ["pokemon-groups"],
+    queryKey: [category, "pokemon-categories"],
     queryFn: () => PokemonProvider.getCategory(category),
+    enabled: !!category,
   });
 };
 
-// const usePokemonTypes = () => {
-//   return useQuery({
-//     queryKey: ["pokemon-types"],
-//     queryFn: PokemonProvider.getTypes,
-//   });
-// };
-
-// const usePokemonNatures = () => {
-//   return useQuery({
-//     queryKey: ["pokemon-natures"],
-//     queryFn: PokemonProvider.getNatures,
-//   });
-// };
-
-// const usePokemonShapes = () => {
-//   return useQuery({
-//     queryKey: ["pokemon-shapes"],
-//     queryFn: PokemonProvider.getShapes,
-//   });
-// };
-
 const usePokemonList = (group: string) => {
   return useQuery({
-    queryKey: ["pokemon list"],
+    queryKey: [group, "pokemon-list"],
     queryFn: () => PokemonProvider.getPokemonsByGroup(group),
   });
 };
 
 const usePokemonDetails = (param: string) => {
   return useQuery({
-    queryKey: ["pokemon details"],
+    queryKey: ["pokemon-details"],
     queryFn: () => PokemonProvider.getPokemonByParam(param),
   });
 };
