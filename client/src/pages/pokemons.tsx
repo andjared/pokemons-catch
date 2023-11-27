@@ -46,7 +46,6 @@ export function Pokemons() {
         {category && (
           <Subcategories
             category={category}
-            setCategory={setCategory}
             subcategory={subcategory}
             setSubcategory={setSubcategory}
           />

@@ -23,7 +23,7 @@ const Pokemons = ({ category, subcategory }: IPokemons) => {
       {data.map((item: any, index: number) => {
         const { name } = category === "type" ? item.pokemon : item;
         return (
-          <Link to={`/pokemons/${category}/${name}`} key={index}>
+          <Link to={`/pokemons/${subcategory}/${name}`} key={index}>
             <Card name={name} />
           </Link>
         );

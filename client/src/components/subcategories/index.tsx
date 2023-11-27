@@ -9,7 +9,6 @@ export interface ISubcategories {
   category: string;
   subcategory: string;
   setSubcategory: (subcategory: string) => void;
-  setCategory: (category: string) => void;
 }
 const Subcategories = ({
   category,
@@ -29,9 +28,7 @@ const Subcategories = ({
     setSubcategory(name);
   };
 
-  return subcategory && category ? (
-    <Pokemons category={category} subcategory={subcategory} />
-  ) : (
+  return !subcategory ? (
     <section className="grid grid-cols-list place-content-center gap-4 md:gap-4 py-4 px-4 lg:px-8 lg:py-6 w-full bg-white">
       {data?.map((item, index) => {
         const { name } = item;
@@ -42,6 +39,8 @@ const Subcategories = ({
         );
       })}
     </section>
+  ) : (
+    <Pokemons category={category} subcategory={subcategory} />
   );
 };
 
