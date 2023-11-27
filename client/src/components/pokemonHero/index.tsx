@@ -15,10 +15,10 @@ export const PokemonHero = ({
   id,
   description,
 }: IPokemonHero) => {
-  const threeDigitsId = zeroPad(id);
+  const threeDigitsId = zeroPad(id, 3);
 
   return (
-    <header className="flex flex-col justify-between h-[460px] sm:flex-row-reverse sm:items-center sm:gap-x-2 md:py-4">
+    <header className="flex flex-col justify-between sm:flex-row-reverse sm:items-center sm:gap-x-2 md:py-4">
       <div className="flex items-center justify-center flex-1">
         <img src={imgSrc} alt={name} />
       </div>

@@ -7,7 +7,6 @@ const Search = () => {
     setQuery(e.target.value);
   };
 
-  console.log(query);
   return (
     <div className="flex flex-col gap-y-4 md:gap-y-6 md:items-center">
       <h5>Search pokemon by name</h5>

@@ -7,10 +7,16 @@ import Pokemons from "./pokemons";
 
 export interface ISubcategories {
   category: string;
+  subcategory: string;
+  setSubcategory: (subcategory: string) => void;
+  setCategory: (category: string) => void;
 }
-const Subcategories = ({ category }: ISubcategories) => {
+const Subcategories = ({
+  category,
+  subcategory,
+  setSubcategory,
+}: ISubcategories) => {
   const { data, isLoading } = usePokemonCategories(category);
-  const [subcategory, setSubcategory] = useState<string>("");
 
   if (isLoading) {
     return (
@@ -23,8 +29,10 @@ const Subcategories = ({ category }: ISubcategories) => {
     setSubcategory(name);
   };
 
-  return (
-    <section className="grid grid-cols-list place-content-center gap-4 md:gap-4 py-4 px-6 lg:px-8 lg:py-6 w-full bg-white ">
+  return subcategory && category ? (
+    <Pokemons category={category} subcategory={subcategory} />
+  ) : (
+    <section className="grid grid-cols-list place-content-center gap-4 md:gap-4 py-4 px-4 lg:px-8 lg:py-6 w-full bg-white">
       {data?.map((item, index) => {
         const { name } = item;
         return (
@@ -33,9 +41,6 @@ const Subcategories = ({ category }: ISubcategories) => {
           </Button>
         );
       })}
-      {subcategory && (
-        <Pokemons category={category} subcategory={subcategory} />
-      )}
     </section>
   );
 };

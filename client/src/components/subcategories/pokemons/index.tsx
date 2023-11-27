@@ -19,7 +19,7 @@ const Pokemons = ({ category, subcategory }: IPokemons) => {
     );
   }
   return (
-    <section>
+    <section className="grid grid-cols-list place-content-center gap-4 md:gap-4 py-4 px-6 lg:px-8 lg:py-6 w-full bg-white">
       {data.map((item: any, index: number) => {
         const { name } = category === "type" ? item.pokemon : item;
         return (
@@ -28,7 +28,6 @@ const Pokemons = ({ category, subcategory }: IPokemons) => {
           </Link>
         );
       })}
-      <div>{data.length}</div>
     </section>
   );
 };

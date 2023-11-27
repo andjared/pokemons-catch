@@ -23,6 +23,6 @@ export const kilogramsToPounds = (num: number) => {
   return result;
 };
 
-export const zeroPad = (num: number) => {
-  return num.toString().padStart(3, "0");
+export const zeroPad = (num: number, length: number) => {
+  return num.toString().padStart(length, "0");
 };
