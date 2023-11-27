@@ -1,8 +1,8 @@
 import axios from "axios";
-import { Pokemon, PokemonGroup, ResponseShort, Species } from "./model";
+import { Pokemon, ResponseShort, Species } from "./model";
 
 class PokemonService {
-  async getCategory(category: string): Promise<PokemonGroup[]> {
+  async getCategory(category: string): Promise<ResponseShort[]> {
     const { data } = await axios.get(`https://pokeapi.co/api/v2/${category}/`);
     return data.results;
   }
@@ -16,13 +16,6 @@ class PokemonService {
       return data.pokemon;
     }
 
-    return data.pokemon_species;
-  }
-
-  async getPokemonsByGroup(group: string): Promise<ResponseShort[]> {
-    const { data } = await axios.get(
-      `https://pokeapi.co/api/v2/egg-group/${group}`
-    );
     return data.pokemon_species;
   }
 

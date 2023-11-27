@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import { usePokemonSubCategories } from "../../../hooks/useQuery";
-import Card from "../../card";
+import { Card } from "../../card";
 import { Loader } from "../../loader/loader";
-import { ResponseShort } from "../../../services/pokedex/model";
 
 export interface IPokemons {
   category: string;

@@ -21,13 +21,6 @@ const usePokemonSubCategories = (category: string, subcategory: string) => {
   });
 };
 
-const usePokemonList = (group: string) => {
-  return useQuery({
-    queryKey: [group, "pokemon-list"],
-    queryFn: () => PokemonProvider.getPokemonsByGroup(group),
-  });
-};
-
 const usePokemonDetails = (param: string) => {
   return useQuery({
     queryKey: [param, "pokemon-details"],
@@ -37,7 +30,7 @@ const usePokemonDetails = (param: string) => {
 
 const useSpeciesData = (url: string) => {
   return useQuery({
-    queryKey: ["species"],
+    queryKey: [url, "species"],
     queryFn: () => PokemonProvider.getSpeciesData(url),
     enabled: !!url,
   });
@@ -61,7 +54,6 @@ const useItemsData = (list: any) => {
 export {
   usePokemonCategories,
   usePokemonSubCategories,
-  usePokemonList,
   usePokemonDetails,
   useSpeciesData,
   useItemsList,

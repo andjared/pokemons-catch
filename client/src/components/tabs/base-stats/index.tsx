@@ -1,5 +1,5 @@
 import { PokemonStats } from "../../../services/pokedex/model";
-import ProgressBar from "../../progressBar";
+import { ProgressBar } from "../../progressBar";
 
 export interface IBaseStats {
   stats: PokemonStats[];

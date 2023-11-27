@@ -1,9 +1,4 @@
-import {
-  EggGroup,
-  PokemonAbility,
-  PokemonHabitat,
-  PokemonShape,
-} from "../../../services/pokedex/model";
+import { PokemonAbility, ResponseShort } from "../../../services/pokedex/model";
 import {
   decimeterToFeets,
   decimeterstToMeters,
@@ -16,9 +11,9 @@ export interface IAboutTab {
   height: number;
   weight: number;
   abilities: PokemonAbility[];
-  egg_groups: EggGroup[];
-  shape: PokemonShape;
-  habitat: PokemonHabitat;
+  egg_groups: ResponseShort[];
+  shape: ResponseShort;
+  habitat: ResponseShort;
 }
 
 const AboutTab = ({

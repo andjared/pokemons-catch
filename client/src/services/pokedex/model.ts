@@ -1,31 +1,14 @@
-export type PokemonShort = {
-  name: string;
-  url: string;
-};
-
 export type ResponseShort = {
   name: string;
   url: string;
 };
 
-export type PokemonGroup = {
-  name: string;
-  url: string;
-};
-
-// export type PokemonList = {
-//   count: number;
-//   next: string;
-//   previous: string;
-//   results: PokemonShort[];
-// };
-
 export interface PokemonType {
-  type: { name: string; url: string };
+  type: ResponseShort;
 }
 
 export type PokemonAbility = {
-  [key: string]: { name: string; url: string };
+  [key: string]: ResponseShort;
 };
 
 export type PokemonStats = {
@@ -58,25 +41,10 @@ export interface Pokemon {
   stats: PokemonStats[];
 }
 
-export type EggGroup = {
-  name: string;
-  url: string;
-};
-
-export type PokemonShape = {
-  name: string;
-  url: string;
-};
-
-export type PokemonHabitat = {
-  name: string;
-  url: string;
-};
-
 export interface Species {
   flavor_text_entries: [{ flavor_text: string; language: { name: string } }];
-  egg_groups: EggGroup[];
+  egg_groups: ResponseShort[];
   evolution_chain: { url: string };
-  shape: PokemonShape;
-  habitat: PokemonHabitat;
+  shape: ResponseShort;
+  habitat: ResponseShort;
 }

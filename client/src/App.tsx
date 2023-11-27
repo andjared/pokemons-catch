@@ -11,7 +11,6 @@ import { Pokemons } from "./pages/pokemons";
 import { Items } from "./pages/items";
 import { Moves } from "./pages/moves";
 import { PokemonDetails } from "./pages/pokemonDetails";
-import { PokemonGroup } from "./pages/group";
 
 function App() {
   const router = createBrowserRouter(
@@ -19,7 +18,6 @@ function App() {
       <Route path="/" element={<Root />}>
         <Route index element={<Dashboard />} />
         <Route path="/pokemons" element={<Pokemons />} />
-        <Route path="/pokemons/:category" element={<PokemonGroup />} />
         <Route
           path="/pokemons/:subcategory/:param"
           element={<PokemonDetails />}

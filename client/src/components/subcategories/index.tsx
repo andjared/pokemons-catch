@@ -1,7 +1,6 @@
-import { useState } from "react";
 import { usePokemonCategories } from "../../hooks/useQuery";
 import { Loader } from "../loader/loader";
-import Card from "../card";
+import { Card } from "../card";
 import { Button } from "../button";
 import Pokemons from "./pokemons";
 
