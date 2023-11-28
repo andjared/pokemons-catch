@@ -59,7 +59,7 @@ export const PokemonWrapper = ({ pokemon }: IPokemonWrapper) => {
   );
 
   const description = descriptionEn[0].flavor_text.concat(
-    descriptionEn[3].flavor_text
+    descriptionEn[2]?.flavor_text
   );
 
   return (

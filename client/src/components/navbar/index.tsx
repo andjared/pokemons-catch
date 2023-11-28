@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Logo } from "../logo";
 import { UserMenu } from "../user-menu";
 
@@ -14,56 +14,39 @@ export const NavBar = () => {
   ];
 
   return (
-    <nav className="w-full bg-white">
-      <div className="h-[100px] flex items-center justify-between px-10 lg:px-16 shadow-md">
-        {/* Primary menu and logo */}
-        <Logo />
-        <div className="hidden md:flex md:gap-4 lg:gap-8">
-          {links.map((link, index) => {
-            const { path, name } = link;
-            return (
-              <NavLink
-                to={path}
-                key={index}
-                className={({ isActive }) =>
-                  [
-                    "px-4 py-2 uppercase font-semibold text-sm lg:text-md",
-                    "hover:bg-gray-100 ",
-                    "rounded-md transition",
-                    isActive
-                      ? "bg-gray-300 text-white hover:text-gray-700 shadow-md"
-                      : "text-gray-800",
-                  ].join(" ")
-                }
-              >
-                <span>{name}</span>
-              </NavLink>
-            );
-          })}
-        </div>
-        <div className="flex items-center md:hidden">
-          <UserMenu toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
-        </div>
-      </div>
-      {/* mobile navigation */}
+    <nav className="w-full relative bg-white px-6 py-4 lg:px-10 flex items-center justify-between gap-x-4 shadow-sm">
+      <Logo />
       <div
-        className={`fixed z-40 w-full bg-gray-100 overflow-hidden flex flex-col lg:hidden gap-4 origin-top duration-200 ${
-          !toggleMenu ? "h-0" : "h-full"
+        className={`flex gap-4 md:gap-6 ${
+          toggleMenu
+            ? "flex flex-col absolute top-[80px] left-0 p-6 md:p-0 md:static md:flex-row bg-white w-full md:w-auto border-t-2 border-gray-200 md:border-transparent"
+            : "hidden md:flex gap-4 md:gap-6"
         }`}
       >
-        <div className="py-4 px-10 flex flex-col gap-6 font-bold tracking-wider">
-          {links.map((link, index) => {
-            const { path, name } = link;
-            return (
-              <Link to={path} onClick={() => setToggleMenu(false)} key={index}>
-                <span className="uppercase font-semibold text-sm lg:text-md">
-                  {name}
-                </span>
-              </Link>
-            );
-          })}
-        </div>
+        {links.map((link, index) => {
+          const { path, name } = link;
+          return (
+            <NavLink
+              to={path}
+              key={index}
+              className={({ isActive }) =>
+                [
+                  "px-4 py-2 uppercase font-semibold text-sm lg:text-md tracking-wider",
+                  "hover:bg-gray-100",
+                  "rounded-md transition",
+                  isActive
+                    ? "bg-gray-300 text-white hover:text-gray-700 shadow-md"
+                    : "text-gray-800",
+                ].join(" ")
+              }
+              onClick={() => setToggleMenu(false)}
+            >
+              {name}
+            </NavLink>
+          );
+        })}
       </div>
+      <UserMenu toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
     </nav>
   );
 };

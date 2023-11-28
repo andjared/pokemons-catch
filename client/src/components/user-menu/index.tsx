@@ -11,7 +11,7 @@ export const UserMenu = ({ toggleMenu, setToggleMenu }: userMenuProps) => {
         alt="Avatar image"
         className="rounded-full bg-gray-50"
       /> */}
-      <button onClick={() => setToggleMenu(!toggleMenu)}>
+      <button onClick={() => setToggleMenu(!toggleMenu)} className="md:hidden">
         {toggleMenu ? (
           <img src="/icons/close.svg" alt="Close menu icon" />
         ) : (
