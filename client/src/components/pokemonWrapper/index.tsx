@@ -1,4 +1,4 @@
-import { MouseEventHandler, useState } from "react";
+import { useState } from "react";
 import { Pokemon } from "../../services/pokedex/model";
 import { useSpeciesData } from "../../hooks/useQuery";
 import { PokemonHero } from "../pokemonHero";
@@ -52,6 +52,7 @@ export const PokemonWrapper = ({ pokemon }: IPokemonWrapper) => {
   const imgSrc = sprites.other["official-artwork"].front_shiny;
 
   const { egg_groups, shape, habitat, flavor_text_entries } = speciesData!;
+  console.log(speciesData);
 
   const descriptionEn = flavor_text_entries.filter(
     (entry) => entry.language.name === "en"

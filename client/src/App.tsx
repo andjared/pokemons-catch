@@ -6,11 +6,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import { NavBar } from "./components/navbar";
-import { Dashboard } from "./pages/dashboard";
-import { Pokemons } from "./pages/pokemons";
-import { Items } from "./pages/items";
-import { Moves } from "./pages/moves";
-import { PokemonDetails } from "./pages/pokemonDetails";
+import { Dashboard, Pokemons, Items, Moves, PokemonDetails } from "./pages";
 
 function App() {
   const router = createBrowserRouter(

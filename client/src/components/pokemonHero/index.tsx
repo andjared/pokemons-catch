@@ -37,7 +37,9 @@ export const PokemonHero = ({
             ))}
           </ul>
         </div>
-        <p className="text-gray-500 text-justify">{description}</p>
+        <div className="flex pr-10 lg:pr-32">
+          <p className="text-gray-500 text-justify">{description}</p>
+        </div>
       </div>
     </header>
   );
