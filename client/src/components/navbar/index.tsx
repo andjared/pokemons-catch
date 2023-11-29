@@ -4,7 +4,7 @@ import { Logo } from "../logo";
 import { UserMenu } from "../user-menu";
 
 export const NavBar = () => {
-  const [toggleMenu, setToggleMenu] = useState(false);
+  const [toggleMenu, setToggleMenu] = useState<boolean>(false);
 
   const links = [
     { path: "/", name: "dashboard" },
@@ -32,10 +32,10 @@ export const NavBar = () => {
               className={({ isActive }) =>
                 [
                   "px-4 py-2 uppercase font-semibold text-sm lg:text-md tracking-wider",
-                  "hover:bg-gray-100",
+                  "hover:bg-gray-50 ",
                   "rounded-md transition",
                   isActive
-                    ? "bg-gray-300 text-white hover:text-gray-700 shadow-md"
+                    ? "bg-gray-400 text-white hover:text-gray-700 shadow-md"
                     : "text-gray-800",
                 ].join(" ")
               }

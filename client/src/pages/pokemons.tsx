@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Pokemon } from "../services/pokedex/model";
 import { Button } from "../components/button";
 import Subcategories from "../components/subcategories";
-import Search from "../components/search";
+import { Search } from "../components/search";
 
 export interface IPokemons {
   pokemons: Pokemon[];

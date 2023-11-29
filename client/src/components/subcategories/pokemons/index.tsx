@@ -9,7 +9,6 @@ export interface IPokemons {
 }
 const Pokemons = ({ category, subcategory }: IPokemons) => {
   const { data, isLoading } = usePokemonSubCategories(category, subcategory);
-
   if (isLoading) {
     return (
       <section className="flex justify-center m-auto">
@@ -22,7 +21,7 @@ const Pokemons = ({ category, subcategory }: IPokemons) => {
       {data.map((item: any, index: number) => {
         const { name } = category === "type" ? item.pokemon : item;
         return (
-          <Link to={`/pokemons/${subcategory}/${name}`} key={index}>
+          <Link to={`/pokemons/${name}`} key={index}>
             <Card name={name} />
           </Link>
         );

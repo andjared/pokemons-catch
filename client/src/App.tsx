@@ -14,10 +14,7 @@ function App() {
       <Route path="/" element={<Root />}>
         <Route index element={<Dashboard />} />
         <Route path="/pokemons" element={<Pokemons />} />
-        <Route
-          path="/pokemons/:subcategory/:param"
-          element={<PokemonDetails />}
-        />
+        <Route path="/pokemons/:param" element={<PokemonDetails />} />
         <Route path="/items" element={<Items />} />
         <Route path="/moves" element={<Moves />} />
       </Route>

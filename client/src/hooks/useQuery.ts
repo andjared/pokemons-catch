@@ -5,6 +5,13 @@ import ItemsService from "../services/items";
 const PokemonProvider = new PokemonService();
 const ItemsProvider = new ItemsService();
 
+const usePokemonList = () => {
+  return useQuery({
+    queryKey: ["pokemon-list"],
+    queryFn: () => PokemonProvider.getPokemonList(),
+  });
+};
+
 const usePokemonCategories = (category: string) => {
   return useQuery({
     queryKey: [category, "pokemon-categories"],
@@ -52,6 +59,7 @@ const useItemsData = (list: any) => {
 };
 
 export {
+  usePokemonList,
   usePokemonCategories,
   usePokemonSubCategories,
   usePokemonDetails,
