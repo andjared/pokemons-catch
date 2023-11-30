@@ -18,9 +18,9 @@ export const PokemonHero = ({
   const threeDigitsId = zeroPad(id, 3);
 
   return (
-    <header className="flex flex-col justify-between sm:flex-row-reverse sm:items-center sm:gap-x-2 md:py-4">
-      <div className="flex items-center justify-center flex-1">
-        <img src={imgSrc} alt={name} />
+    <header className="flex flex-col justify-between sm:flex-row-reverse sm:items-center sm:gap-x-2 md:py-4 lg:pr-20">
+      <div className="flex items-center justify-center flex-1 lg:px-10">
+        <img src={imgSrc} alt={name} width={360} />
       </div>
       <div className="flex flex-col gap-y-2 flex-1">
         <span className="text-gray-500">#{threeDigitsId}</span>
@@ -37,7 +37,7 @@ export const PokemonHero = ({
             ))}
           </ul>
         </div>
-        <div className="flex pr-10 lg:pr-32">
+        <div className="flex  md:pr-10 lg:pr-20">
           <p className="text-gray-500 text-justify">{description}</p>
         </div>
       </div>

@@ -62,7 +62,7 @@ export const PokemonWrapper = ({ pokemon }: IPokemonWrapper) => {
   );
 
   return (
-    <section className="flex flex-col gap-y-4 px-4 py-4 sm:px-6 lg:px-36">
+    <section className="flex flex-col gap-y-4 px-4 py-4 sm:px-6 lg:pl-36">
       <div className="border-b-2 border-gray-100 flex flex-col gap-y-2">
         <PokemonHero
           imgSrc={imgSrc}
@@ -71,12 +71,16 @@ export const PokemonWrapper = ({ pokemon }: IPokemonWrapper) => {
           id={id}
           description={description}
         />
-        <div className="flex gap-x-4 sm:gap-x-6">
+        <div className="flex gap-x-4 sm:gap-x-6 relative before:absolute before:bg-gray-200 before:w-full before:h-0.5 before:bottom-0 before:right-0">
           {tabs.map((tab) => {
             const { name, id } = tab;
+            const isActive = activeTab === id;
             return (
               <Button
-                className="capitalize text-base sm:text-md md:text-lg text-gray-700 font-semibold py-4"
+                className={`relative capitalize text-base sm:text-md md:text-lg text-gray-700 font-semibold py-4 md:py-6 transition ${
+                  isActive &&
+                  "before:absolute before:bg-gray-500 before:w-full before:h-1 before:bottom-0 before:right-0"
+                }`}
                 id={String(id)}
                 key={id}
                 onClick={toggleTabs}
