@@ -14,12 +14,12 @@ export const NavBar = () => {
   ];
 
   return (
-    <nav className="w-full relative bg-white px-6 py-4 lg:px-10 flex items-center justify-between gap-x-4 shadow-sm">
+    <nav className="w-full relative h-[80px] bg-white px-6 lg:px-10 flex  justify-between gap-x-4 shadow-sm z-40">
       <Logo />
       <div
-        className={`flex gap-4 md:gap-6 ${
+        className={`flex gap-4 md:gap-8 px-4 md:items-center ${
           toggleMenu
-            ? "flex flex-col absolute top-[80px] left-0 p-6 md:p-0 md:static md:flex-row bg-white w-full md:w-auto border-t-2 border-gray-200 md:border-transparent"
+            ? "flex flex-col absolute top-[80px] left-0 md:static md:flex-row bg-white w-full md:w-auto border-t-2 border-gray-200 md:border-transparent"
             : "hidden md:flex gap-4 md:gap-6"
         }`}
       >
@@ -31,11 +31,11 @@ export const NavBar = () => {
               key={index}
               className={({ isActive }) =>
                 [
-                  "px-4 py-2 uppercase font-semibold text-sm lg:text-md tracking-wider",
+                  "relative inline uppercase py-4 font-semibold text-sm lg:text-md tracking-wider",
                   "hover:bg-gray-50 ",
                   "rounded-md transition",
                   isActive
-                    ? "bg-gray-400 text-white hover:text-gray-700 shadow-md"
+                    ? "text-blue-400 before:absolute before:bg-blue-400 before:w-full before:h-1 before:bottom-0 before:right-0"
                     : "text-gray-800",
                 ].join(" ")
               }
